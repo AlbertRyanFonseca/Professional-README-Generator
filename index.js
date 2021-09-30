@@ -18,17 +18,17 @@ const questions = [
     {
         type: 'input',
         name: 'Installation',
-        message: 'Are there any installations required?',
+        message: 'What are the steps to install your application?',
     },
     {
         type: 'input',
         name: 'Usage',
-        message: 'What is the usage information for this project?'
+        message: 'How do we use this project?'
     },
     {
         type: 'input',
         name: 'Contributors',
-        message: 'Provide any contributors if there are any.',
+        message: 'Provide any contributors.',
     },
     {
         type: 'input',
@@ -61,7 +61,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-        .then((data) => writeToFile('READMEGENERATED.md', generateMarkdown(data)))
+        .then((data) => writeToFile('READMEGenerated.md', generateMarkdown(data)))
 }
 
 // Function call to initialize app
