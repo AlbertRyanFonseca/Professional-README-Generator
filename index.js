@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -15,21 +16,14 @@ const questions = [
         message: 'Please provide a description of your project',
     },
     {
-        type: 'checkbox',
-        name: 'Contents',
-        choices: ['Title', 'Description', 'Table of Contents', 'Installations', 'Usage', 'License', 'Contributors', 'Testing', 'GitHub Repo', 'Email for question inquiries'],
-        message: 'Please select the bullet points you would like in the Table of Contents',
-    },
-    {
         type: 'input',
         name: 'Installation',
         message: 'Are there any installations required?',
     },
     {
-        type: 'list',
-        name: 'License',
-        choices: ['Apache License 2.0', 'MIT License'],
-        messge: 'Please select the type of license you will be using',
+        type: 'input',
+        name: 'Usage',
+        message: 'What is the usage information for this project?'
     },
     {
         type: 'input',
@@ -38,13 +32,24 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'Test',
+        message: 'How do you test your project?'
+    },
+    {
+        type: 'list',
+        name: 'License',
+        choices: ['Apache', 'SIL', 'GNUAGPLV3', 'ISC', 'MIT', 'N/A'],
+        messge: 'Please select the type of license you will be using',
+    },
+    {
+        type: 'input',
         name: 'GitHub',
-        message: 'Provide your GitHub username',
+        message: 'Provide your GitHub username.',
     },
     {
         type: 'input',
         name: 'Email',
-        message: 'Provide your email for inquiries regarding your application',
+        message: 'Provide your email for inquiries regarding your application.',
     }
 ];
 
@@ -54,7 +59,11 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+    inquirer.prompt(questions)
+        .then((data) => writeToFile('READMEGENERATED.md', generateMarkdown(data)))
+        .catch((err) => console.log(err))
+}
 
 // Function call to initialize app
 init();

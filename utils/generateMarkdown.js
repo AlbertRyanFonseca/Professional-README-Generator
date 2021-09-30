@@ -25,7 +25,7 @@ function renderLicenseLink(license) {
     return 'https://www.apache.org/licenses/LICENSE-2.0.html';
   } else if (license === 'SIL') {
     return 'https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ofl';
-  } else if (license === 'GNU AGPL V3') {
+  } else if (license === 'GNUAGPLV3') {
     return 'https://www.gnu.org/licenses/gpl-3.0.en.html';
   } else if (license === 'ISC') {
     return 'https://www.isc.org/licenses/';
@@ -902,8 +902,46 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 }
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.Title}
 
+  ## Table of Content
+  1) [Description](#description)
+  2) [Installation](#installation)
+  3) [Usage](#usage)
+  4) [Contributing](#contributing)
+  5) [Tests](#tests)
+  6) [License](#license)
+  7) [Questions](#questions)
+
+  ## Description 
+  ${data.Description}
+
+  ## Installation
+  ${data.Installation}
+
+  ## Usage
+  ${data.Usage}
+
+  ## Contributing
+  ${data.Contributors}
+
+  ## Tests
+  ${data.Test}
+
+  ## License
+  ${renderLicenseBadge(data.license)}  ${data.license}
+
+  ${renderLicenseSection(data.license)}
+
+  ## Questions
+
+  Contact via GitHub:
+  [link]{https://github.com/${data.GitHub}}
+
+  AND/OR
+
+  Contact via email:
+  [Email:][mailto:${data.Email}]
 `;
 }
 
