@@ -5,7 +5,7 @@
 1) [Description](#description)
 2) [Installation](#installation)
 3) [Usage](#usage)
-4) [Built With](#built_with)
+4) [Languages](#languages)
 5) [Credit](#credit)
 6) [Page](#page)
 7) [Contact](#contact)
@@ -28,7 +28,7 @@ This applicaiton runs on your own computer. Once cloned & installed, you will ru
 - Look inside of the project root folder and look for the README labeled: REAMDEGenerated.md".
 - Click the file and now you have a README.md!
 
-## Built With
+## Languages
 - JavaSript
 - Node.js (Inquirer: https://www.npmjs.com/package/inquirer )
 - Markdown
