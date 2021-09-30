@@ -62,7 +62,6 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then((data) => writeToFile('READMEGENERATED.md', generateMarkdown(data)))
-        .catch((err) => console.log(err))
 }
 
 // Function call to initialize app
