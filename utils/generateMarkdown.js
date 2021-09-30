@@ -5,16 +5,14 @@ function renderLicenseBadge(license) {
     return '[![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)]';
   } else if (license === 'SIL') {
     return '[![License: Open Font-1.1](https://img.shields.io/badge/License-OFL%201.1-lightgreen.svg)]';
-  } else if (license === 'GNU AGPL v3') {
+  } else if (license === 'GNUAGPLV3') {
     return '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)]';
   } else if (license === 'ISC') {
     return '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)]';
   } else if (license === 'MIT') {
     return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]';
-  } else if (license === 'N/A') {
-    return ''
   } else {
-    return license
+    return ''
   }
 }
 
@@ -31,10 +29,8 @@ function renderLicenseLink(license) {
     return 'https://www.isc.org/licenses/';
   } else if (license === 'MIT') {
     return 'https://mit-license.org/';
-  } else if (license === 'N/A') {
-    return ''
   } else {
-    return license
+    return ''
   }
 }
 
@@ -319,7 +315,7 @@ function renderLicenseSection(license) {
     FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
     OTHER DEALINGS IN THE FONT SOFTWARE.    
     `;
-  } else if (license === 'GNU AGPL v3') {
+  } else if (license === 'GNUAGPLV3') {
     return `                    GNU AFFERO GENERAL PUBLIC LICENSE
     Version 3, 29 June 2007
 Copyright (C) 2007 Free Software Foundation, Inc. [link](https://fsf.org/)
@@ -894,17 +890,15 @@ For more information on this, and how to apply and follow the GNU AGPL, see
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
     `;
-  } else if (license === 'N/A') {
-    return 'N/A'
   } else {
-    return license
+    return ''
   }
 }
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.Title}
 
-  ## Table of Content
+  ## Table of Contents
   1) [Description](#description)
   2) [Installation](#installation)
   3) [Usage](#usage)
@@ -929,9 +923,11 @@ function generateMarkdown(data) {
   ${data.Test}
 
   ## License
-  ${renderLicenseBadge(data.license)}  ${data.license}
+  ${renderLicenseBadge(data.License)}  
+  
+  ${data.License}
 
-  ${renderLicenseSection(data.license)}
+  ${renderLicenseSection(data.License)}
 
   ## Questions
 
